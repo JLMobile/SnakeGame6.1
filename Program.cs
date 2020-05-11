@@ -55,7 +55,7 @@ namespace Snake
                     }
                 //show high scores
                 case "2":
-                    string path = @"C:\Users\Public\Documents\userPoints.txt";
+                    string path = @"userPoints.txt";
                     string readText = File.ReadAllText(path);
                     Console.WriteLine(readText);
                     Console.ReadKey();
@@ -177,7 +177,7 @@ namespace Snake
         //Method to create file and write to file the username and points.
         public void SaveFile(int userPoints, string user_name)
         {
-            String filePath = Path.Combine(@"C:\Users\Public\Documents\userPoints.txt");
+            String filePath = Path.Combine(@"userPoints.txt");
             try
             {
                 if (!File.Exists(filePath))
