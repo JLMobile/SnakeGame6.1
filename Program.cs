@@ -219,7 +219,8 @@ namespace Snake
         static void Main(string[] args)
         {
 
-
+ Console.WindowHeight =30;
+           Console.WindowWidth = 130;
 
             // Set the Foreground color to blue 
             Console.BackgroundColor
