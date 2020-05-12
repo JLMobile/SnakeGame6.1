@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +25,8 @@ namespace Snake
     }
     class Snake
     {
+
+       // int score;
         private static int MainMenu()
         {
             //main menu options
@@ -158,11 +160,12 @@ namespace Snake
         {
             if (snakeElements.Contains(snakeNewHead) || obstacles.Contains(snakeNewHead))
             {
+                
                 Console.SetCursorPosition(0, 0);
                 Console.ForegroundColor = ConsoleColor.Red;//Text colour for the game over screen                                     
                 Console.WriteLine("\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\n" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "Game Over!");
-                int userPoints = (snakeElements.Count - 4) * 100 - negativePoints;    //points calculated for player
-                userPoints = Math.Max(userPoints, 0);
+                int userPoints = (snakeElements.Count +1);    //points calculated for player
+               // userPoints = Math.Max(userPoints, 0);
                 Console.WriteLine("\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "Your points are: {0}", userPoints);
                 Console.Write("\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "\t" + "Please enter your name: ");
                 string user_name = Console.ReadLine();
@@ -218,8 +221,7 @@ namespace Snake
         //Main Program
         static void Main(string[] args)
         {
-
- Console.WindowHeight =30;
+           Console.WindowHeight =30;
            Console.WindowWidth = 130;
 
             // Set the Foreground color to blue 
@@ -346,7 +348,7 @@ namespace Snake
                 {
 
 
-                    score += 1;
+                    score += (snakeElements.Count + 1);
                     Scoreboard.Show("Current Score", 0, 1);
                     Scoreboard.WriteScore(score, 0, 2);
                     Console.Beep();//Beep when food is eaten
